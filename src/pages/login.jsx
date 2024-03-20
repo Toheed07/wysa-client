@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { apiPath } from "../utils/contants";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ const Login = () => {
     console.log(password);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/user/login",
+        apiPath +  "/api/user/login",
         { email, password }
       );
 
