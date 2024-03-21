@@ -24,3 +24,9 @@ Users can send messages which are returned back (emitted) to them from the serve
 Users can also upload images as input.
 
 The `/chat` route is protected and users need to be authenticated to access it. If a user is not authenticated, they will be redirected to the login page.
+
+# Result
+
+https://github.com/Toheed07/wysa-client/assets/71722636/8159a902-60f6-434c-9311-f8d69b4151a5
+
+
