@@ -9,15 +9,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const notify = () => toast.success("Login Successfully!",{
-    position: "top-right",
-    autoClose: 4000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
+  const notify = () =>
+    toast.success("Login Successfully!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
     });
 
   const handleEmailChange = (event) => {
@@ -35,8 +36,15 @@ const Login = () => {
     console.log(password);
     try {
       const response = await axios.post(
-        apiPath +  "/api/user/login",
-        { email, password }
+        apiPath + "/api/user/login",
+        { email, password },
+        {
+          mode: "cors",
+          credentials: "include",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          
+        }
       );
 
       console.log("Response:", response.data);
@@ -50,7 +58,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
         setError(null);
-        notify()
+        notify();
         navigate("/chat");
       }
     } catch (error) {

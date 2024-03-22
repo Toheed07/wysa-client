@@ -36,7 +36,14 @@ const Register = () => {
     try {
       const response = await axios.post(
         apiPath + "/api/user/register",
-        { email, password }
+        { email, password },
+        {
+          mode: "cors",
+          credentials: "include",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          
+        }
       );
 
       console.log("Response:", response.data);
